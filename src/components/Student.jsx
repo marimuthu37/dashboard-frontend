@@ -7,12 +7,13 @@ const Student = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn'); 
-    navigate('/login');
+    navigate('/login'); 
   };
 
   return (
     <div className="bg-[#18181b] text-white p-4">
       <div className="flex items-center justify-between h-16 px-6 bg-[#18181b] text-white text-2xl">
+        
         <nav className="flex space-x-16 items-center">
           <Link to="/" className="text-3xl font-bold">Student Dashboard</Link>
           <Link to="/student/academics" className="flex items-center space-x-2 text-gray-400 hover:text-white hover:bg-gray-700 transition-colors p-2 rounded-md">
@@ -32,15 +33,15 @@ const Student = () => {
             <span>Attendance</span>
           </Link>
         </nav>
-        <div className="flex items-center space-x-4">
-          <button 
-            onClick={handleLogout} 
-            className="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300"
-          >
-            <FaSignOutAlt />
-            <span>Logout</span>
-          </button>
-        </div>
+
+        <button 
+          onClick={handleLogout} 
+          className="flex items-center space-x-2 bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded-md transition"
+        >
+          <FaSignOutAlt />
+          <span>Logout</span>
+        </button>
+
       </div>
     </div>
   );
