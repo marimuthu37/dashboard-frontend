@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaBook, FaCheckSquare, FaTrophy, FaHome, FaClipboardList } from "react-icons/fa";
+import { Link, useNavigate } from 'react-router-dom';
+import { FaBook, FaCheckSquare, FaTrophy, FaClipboardList, FaSignOutAlt } from "react-icons/fa";
 
 const Student = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn'); // Clear login status
+    navigate('/login'); // Redirect to login page
+  };
+
   return (
     <div className="bg-[#18181b] text-white p-4">
       <div className="flex items-center justify-between h-16 px-6 bg-[#18181b] text-white text-2xl">
@@ -25,8 +32,14 @@ const Student = () => {
             <span>Attendance</span>
           </Link>
         </nav>
-        <div className="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-full p-7">
-          <span className="text-white font-bold">MG</span>
+        <div className="flex items-center space-x-4">
+          <button 
+            onClick={handleLogout} 
+            className="flex items-center space-x-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition duration-300"
+          >
+            <FaSignOutAlt />
+            <span>Logout</span>
+          </button>
         </div>
       </div>
     </div>
