@@ -6,8 +6,8 @@ const Student = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn'); // Clear login status
-    navigate('/login'); // Redirect to login page
+    localStorage.removeItem('isLoggedIn'); 
+    navigate('/login');
   };
 
   return (
